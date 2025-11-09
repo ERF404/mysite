@@ -8,6 +8,3 @@ def about(request):
 
 def contact(request):
     return render (request, 'website/contact.html')
-
-def nigga(request):
-    return render (request, 'website/nigga.html')

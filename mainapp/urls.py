@@ -1,12 +1,11 @@
 
 from django.urls import path
-from firstappever.views import homepage, nigga, about, contact
+from mainapp.views import homepage, about, contact
 
-app_name = 'firstappever'
+app_name = 'mainapp'
 
 urlpatterns = [
     path('', homepage, name='index'),
-    path('nigga/', nigga, name='nigga'),
     path('contact/', contact, name='contact'),
     path('about/', about, name='about')
 ]

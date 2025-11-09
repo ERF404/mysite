@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FirstappeverConfig(AppConfig):
+class MainappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'firstappever'
+    name = 'mainapp'
