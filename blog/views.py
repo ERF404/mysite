@@ -12,8 +12,10 @@ def blog_view (request):
     return render (request, 'blog/blog-home.html', context)
 
 def blog_single (request,pid):
-
     post = get_object_or_404(Post,id=pid)
+
+    post.counted_view += 1
+    post.save(update_fields=['counted_view'])
     context = {'post': post}
 
     return render (request, 'blog/blog-single.html', context)
