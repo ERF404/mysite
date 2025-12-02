@@ -3,15 +3,17 @@ from blog.models import Post
 from django.utils import timezone
 
 
-def blog_view (request,cat_name=None):
+def blog_view (request,**kwargs):
 
     posts = Post.objects.filter(
         status=1,
         published_date__lte=timezone.now()
         )
-    if cat_name:
-        posts = posts.filter(category__name=cat_name)
-    
+    if kwargs.get('cat_name') != None:
+        posts = posts.filter(category__name=kwargs['cat_name'])
+    if kwargs.get('author_username') != None:
+        posts = posts.filter(author__username=kwargs['author_username'])
+
     context = {'posts': posts}
     return render (request, 'blog/blog-home.html', context)
 
